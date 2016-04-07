@@ -417,3 +417,26 @@ footer{
 .footer_content h3:first-letter{
 	color:#ae4b5d;
 }
+
+.block table a{
+	text-decoration:none;
+	font-family:Arial,sans-serif;
+	font-weight:bold;
+	font-size:16px;
+	color:#ae4b5d;
+	margin-left:55px;
+}
+
+.regestration{
+	margin-left:150px;
+	margin-top:50px;	
+}
+
+.regestration tr input{
+	margin-top:20px;
+	margin-left:10px;
+}
+
+.regestration .auth_btn{
+	
+}
