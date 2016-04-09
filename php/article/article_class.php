@@ -48,6 +48,10 @@ class Article{
 		return $this->pdate;
 	}
 	
+	public function getAuthor(){
+		return $this->id_author;
+	}
+	
 	public function getDescription(){
 		return $this->description;
 	}

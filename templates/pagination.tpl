@@ -1,3 +1,3 @@
 <div class="pagination">
-	%pagination_item%
+	{$pagination_item}
 </div>

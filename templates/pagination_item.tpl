@@ -1,2 +1,2 @@
-	<a href="%link%">%number%</a>
+	<a href="%link%">{$number}</a>
 		

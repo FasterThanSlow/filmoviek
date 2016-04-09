@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="keywords" content="%meta_key%">
-	<meta name="description" content="%meta_desc%">
-	<meta name="author" content="%author%">
+	<meta name="keywords" content="{$meta_key}">
+	<meta name="description" content="{$meta_desc}">
+	<meta name="author" content="{$author}">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link href="css/clear.css" rel="stylesheet" type="text/css">
 	<title>
-		<!--{$title}-->
+		{$title}
 	</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
 	<div class="top">
 		<div class="top_content">
 			<div class="logo">
-				<h1>filemoviek</h1>
+				<h1>filmoviek</h1>
 				<p>Данный сайт поможет оставаться вам в центре новостей из киноиндустрии!</p>
 			</div>
 			<div class="search">
@@ -40,20 +40,20 @@
 	</header>
 	<menu>
 		<ul>
-			<!--{$menu}-->
+			{$menu}
 		</ul>
 	</menu>
 	<div class="interlayer">
 	</div>
 	<content>	
 	<div class="left">
-		<!--{$form_auth}
-		{$weather}-->
+		{$form_auth}
+		{$weather}
 	</div>
 		<div class ="right">
-			preview
+			{$preview}
 			{$middle_content}
-			bottom
+			{$bottom}
 	</content>
 	</div>
 	<footer>

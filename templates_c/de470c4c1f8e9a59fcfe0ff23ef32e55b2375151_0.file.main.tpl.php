@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-04-06 23:17:07
+/* Smarty version 3.1.28, created on 2016-04-09 10:35:50
   from "C:\Server\data\htdocs\filmoviek.net\templates\main.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_57056ec36c33f9_39576213',
+  'unifunc' => 'content_5708b0d6b52cc9_31355942',
   'file_dependency' => 
   array (
     'de470c4c1f8e9a59fcfe0ff23ef32e55b2375151' => 
     array (
       0 => 'C:\\Server\\data\\htdocs\\filmoviek.net\\templates\\main.tpl',
-      1 => 1459973442,
+      1 => 1460184277,
       2 => 'file',
     ),
   ),
@@ -19,20 +19,23 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_57056ec36c33f9_39576213 ($_smarty_tpl) {
+function content_5708b0d6b52cc9_31355942 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="keywords" content="%meta_key%">
-	<meta name="description" content="%meta_desc%">
-	<meta name="author" content="%author%">
+	<meta name="keywords" content="<?php echo $_smarty_tpl->tpl_vars['meta_key']->value;?>
+">
+	<meta name="description" content="<?php echo $_smarty_tpl->tpl_vars['meta_desc']->value;?>
+">
+	<meta name="author" content="<?php echo $_smarty_tpl->tpl_vars['author']->value;?>
+">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link href="css/clear.css" rel="stylesheet" type="text/css">
 	<title>
-		<!--<?php echo $_smarty_tpl->tpl_vars['title']->value;?>
--->
+		<?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+
 	</title>
 </head>
 <body>
@@ -40,7 +43,7 @@ function content_57056ec36c33f9_39576213 ($_smarty_tpl) {
 	<div class="top">
 		<div class="top_content">
 			<div class="logo">
-				<h1>filemoviek</h1>
+				<h1>filmoviek</h1>
 				<p>Данный сайт поможет оставаться вам в центре новостей из киноиндустрии!</p>
 			</div>
 			<div class="search">
@@ -64,24 +67,26 @@ function content_57056ec36c33f9_39576213 ($_smarty_tpl) {
 	</header>
 	<menu>
 		<ul>
-			<!--<?php echo $_smarty_tpl->tpl_vars['menu']->value;?>
--->
+			<?php echo $_smarty_tpl->tpl_vars['menu']->value;?>
+
 		</ul>
 	</menu>
 	<div class="interlayer">
 	</div>
 	<content>	
 	<div class="left">
-		<!--<?php echo $_smarty_tpl->tpl_vars['form_auth']->value;?>
+		<?php echo $_smarty_tpl->tpl_vars['form_auth']->value;?>
 
 		<?php echo $_smarty_tpl->tpl_vars['weather']->value;?>
--->
+
 	</div>
 		<div class ="right">
-			preview
+			<?php echo $_smarty_tpl->tpl_vars['preview']->value;?>
+
 			<?php echo $_smarty_tpl->tpl_vars['middle_content']->value;?>
 
-			bottom
+			<?php echo $_smarty_tpl->tpl_vars['bottom']->value;?>
+
 	</content>
 	</div>
 	<footer>

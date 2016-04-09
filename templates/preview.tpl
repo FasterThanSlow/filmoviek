@@ -1,4 +1,4 @@
 <div class="preview">
-	<h2>%title%</h2>
-	%text%
+	<h2>{$section->getTitle()}</h2>
+	{$section->getDescription()}
 </div>

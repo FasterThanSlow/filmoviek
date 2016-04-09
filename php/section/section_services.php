@@ -19,15 +19,22 @@ class SectionService extends Service{
 	
 	public function selectSectionById(int $id){
 		$data = $this->database_controller->select($this->table_name,Section::getColumnNames(),"id=".$id);
-		$result = @mysqli_fetch_assoc($data);
-		return $result;
+		$row = @mysqli_fetch_assoc($data);
+		return Section::rowToSection($row);
+	}
+	
+		
+	public function selectSectionByTitle($title){
+		$data = $this->database_controller->select($this->table_name,Section::getColumnNames(),"title='".$title."'");
+		$row = @mysqli_fetch_assoc($data);
+		return Section::rowToSection($row);
 	}
 	
 	
 	private function sectionToCollections($data){
 		$result = array();
 		while($row = @mysqli_fetch_assoc($data)){
-			$section = Section::sectionToPost($row);
+			$section = Section::rowToSection($row);
 			$result[] = $section;
 		}
 		return $result;
