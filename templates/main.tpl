@@ -20,7 +20,7 @@
 				<p>Данный сайт поможет оставаться вам в центре новостей из киноиндустрии!</p>
 			</div>
 			<div class="search">
-				<form action="form_controller.php" method="get">
+				<form action="functions.php" method="get">
 				<p><input type="submit" name="send" value="" class="search_btn"></p>
 				<p><input type="text" name="search_string" class="search_text"></p>
 				</form>

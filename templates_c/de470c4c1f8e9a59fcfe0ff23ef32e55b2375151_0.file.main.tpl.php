@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.28, created on 2016-04-09 10:35:50
+/* Smarty version 3.1.28, created on 2016-04-11 13:32:12
   from "C:\Server\data\htdocs\filmoviek.net\templates\main.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.28',
-  'unifunc' => 'content_5708b0d6b52cc9_31355942',
+  'unifunc' => 'content_570b7d2c41d693_29064435',
   'file_dependency' => 
   array (
     'de470c4c1f8e9a59fcfe0ff23ef32e55b2375151' => 
     array (
       0 => 'C:\\Server\\data\\htdocs\\filmoviek.net\\templates\\main.tpl',
-      1 => 1460184277,
+      1 => 1460370725,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5708b0d6b52cc9_31355942 ($_smarty_tpl) {
+function content_570b7d2c41d693_29064435 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +47,7 @@ function content_5708b0d6b52cc9_31355942 ($_smarty_tpl) {
 				<p>Данный сайт поможет оставаться вам в центре новостей из киноиндустрии!</p>
 			</div>
 			<div class="search">
-				<form action="form_controller.php" method="get">
+				<form action="functions.php" method="get">
 				<p><input type="submit" name="send" value="" class="search_btn"></p>
 				<p><input type="text" name="search_string" class="search_text"></p>
 				</form>

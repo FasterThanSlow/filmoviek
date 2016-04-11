@@ -24,3 +24,15 @@
 		header("Location: $link");
 		exit;
 	}
+	
+	if(isset($_GET["regestration"])){
+		$login = $_GET["login"];
+		$password = $_GET["password"];
+		$email = $_GET["email"];
+		$name = $_GET["name"];
+		$id_type = 2;
+		$user = new User($login,$password,$email,$id_type,$name);
+		$user_service->addUser($user);
+		header("Location: index.php");
+		exit;
+	}

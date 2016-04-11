@@ -63,16 +63,17 @@ class DataBaseController {
 		if(!empty($table_name) && !empty($values) && !empty($column_names)){
 			$query .= "INSERT INTO `".$table_name."`";
 			$query .= " (";	
+
 			if(is_array($column_names)){
 				for($i = 0; $i < count($column_names) - 1; $i++){
 					$query .= "`".addslashes($column_names[$i])."`,";
 				}
-				$query .="`".$column_names[count($column_names)-1]."`)";
+				$query .= "`".$column_names[count($column_names)-1]."`";
 			}
 			else{
-				$query .= "`".addslashes($column_names)."`)";
-			}			
-			$query .= " VALUES (";
+				$query .= $column_names;
+			}
+			$query .= ") VALUES (";
 			if(is_array($values)){
 				for($i = 0; $i < count($values) - 1; $i++){
 					$query .= "'".addslashes($values[$i])."',";
@@ -80,7 +81,7 @@ class DataBaseController {
 				$query .= "'".addslashes($values[count($values)-1])."')";
 			}
 			else{
-				$query .= "'".addslashes($values)."'";
+				$query .= addslashes($values);
 			}
 			if($result = @mysqli_query($this->database_link,$query)){
 				return TRUE;
@@ -90,6 +91,7 @@ class DataBaseController {
 			}
 		}
 		else{
+			
 			return FALSE;
 		}
 	}
