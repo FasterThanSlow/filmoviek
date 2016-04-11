@@ -1,7 +1,8 @@
 <div class="article">
 	<div class="main_text">
-		%full_text%
-		<p class="author">%author%</p>
-		<p class="date">%date%</p>
+		<div class="img"><img src="{$article->getImg()}"></div>
+		{$article->getFullText()}
+		<p class="author">{$article->getAuthorName()}</p>
+		<p class="date">{$article->getArticleDate()}</p>
 	</div>
 </div>

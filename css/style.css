@@ -15,6 +15,11 @@ body,html{
 	padding-top:10px;
 }
 
+.user_info{
+	color:#ae4b5d;
+	font-weight:bold;
+}
+
 .search{
 	margin-top:-35px;
 }
@@ -74,7 +79,7 @@ body,html{
 	width:1000px;
 	background-color:#fff;
 	margin:0 auto 0 auto;
-	padding-bottom:280px;
+	padding-bottom:270px;
 }
 
 header{
@@ -290,6 +295,7 @@ footer{
 
 .article{
 	margin-top:30px;
+	max-height:240px;
 }
 
 
@@ -349,10 +355,8 @@ footer{
 	color:#5c646e;
 }
 
-.img{
+.img img{
 	float:left;
-	background:url(../img/img1.jpg) 100% 100% no-repeat;
-	background-size:cover;
 	height:150px;
 	width:150px;
 	margin-right:20px;

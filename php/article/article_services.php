@@ -26,7 +26,9 @@ class ArticleService extends Service{
 	public function selectArticleById(int $id){
 		$data = $this->database_controller->select($this->table_name,Article::getColumnNames(),"id=".$id);
 		$row = @mysqli_fetch_assoc($data);
-		return Article::rowToArticle($row);
+		$article = Article::rowToArticle($row);
+		$this->findAuthorName($article);
+		return $article;
 	}
 	
 	public function selectArticlesBySection(int $id_section){
@@ -38,8 +40,16 @@ class ArticleService extends Service{
 		$result = array();
 		while($row = @mysqli_fetch_assoc($data)){
 			$post = Article::rowToArticle($row);
+			$this->findAuthorName($post);
 			$result[] = $post;
 		}
 		return $result;
 	}
+	
+	private function findAuthorName($article){
+		$data = $this->database_controller->select("users","*","id=".$article->getAuthorId());
+		$row =@mysqli_fetch_assoc($data);
+		$article->setAuthorName($row["name"]);
+	}
 }
+

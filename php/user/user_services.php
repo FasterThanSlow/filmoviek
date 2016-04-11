@@ -11,22 +11,28 @@ class UserService extends Service{
 	}
 	
 	public function addUser(User $user){
-		return $this->database_controller->insert($this->tableName,User::getColumnNames(),$user->getValues()); 
+		return $this->database_controller->insert($this->table_name,User::getColumnNames(),$user->getValues()); 
 	}
 	
 	public function selectAllUsers(){
-		$data = $this->database_controller->select($this->tableName,User::getColumnNames());
+		$data = $this->database_controller->select($this->table_name,User::getColumnNames());
 		return $this->usersToCollection($data);
 	}
 
 	public function selectUserById(int $id){
-		$data = $this->database_controller->select($this->tableName,User::getColumnNames(),"id=".$id);
+		$data = $this->database_controller->select($this->table_name,User::getColumnNames(),"id=".$id);
 		$row = @mysqli_fetch_assoc($data);
 		return User::rowToUser($row);
 	}
 	
+	public function checkUser($login,$password){
+		$user = $this->selectUserByLogin($login);
+		if(!$user) return false;
+		return $user->getPassword() === $password;
+	}
+	
 	public function selectUserByLogin(string $login){
-		$data = $this->database_controller->select($this->tableName,User::getColumnNames(),"login='".$login."'");
+		$data = $this->database_controller->select($this->table_name,User::getColumnNames(),"login='".$login."'");
 		$row = @mysqli_fetch_assoc($data);
 		return User::rowToUser($row);
 	}
@@ -42,6 +48,6 @@ class UserService extends Service{
 	
 	
 	public function deleteUserByLogin(string $login){
-		return $this->database_controller->delete_record($this->tableName,"login='".$login."'");
+		return $this->database_controller->delete_record($this->table_name,"login='".$login."'");
 	}
 }

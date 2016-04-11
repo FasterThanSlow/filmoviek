@@ -23,6 +23,12 @@ class SectionService extends Service{
 		return Section::rowToSection($row);
 	}
 	
+	public function selectSectionByMenuId(int $id_menu){
+		$data = $this->database_controller->select($this->table_name,Section::getColumnNames(),"id_menu=".$id_menu);
+		$row = @mysqli_fetch_assoc($data);
+		return Section::rowToSection($row);
+	}
+	
 		
 	public function selectSectionByTitle($title){
 		$data = $this->database_controller->select($this->table_name,Section::getColumnNames(),"title='".$title."'");

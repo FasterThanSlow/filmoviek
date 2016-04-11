@@ -4,14 +4,21 @@ require_once "article/article_services.php";
 require_once "section/section_services.php";
 require_once "/libs/Smarty.class.php";
 require_once "database_controller.php";
+require_once "user/user_services.php";
 
 abstract class PageContent{
 	protected $database_controller;
 	protected $smarty;
+	protected $user;
+	protected $user_service;
 	
 	public function __construct($database_controller){
+		session_start();
 		$this->database_controller = $database_controller;
 		$this->smarty = new Smarty();
+		$this->user_service = new UserService($database_controller);
+		$this->user = $this->getUser();
+	
 	}
 	
 	public function getContent(){
@@ -23,6 +30,26 @@ abstract class PageContent{
 		$this->smarty->assign('middle_content',$this->getMiddle($this->smarty));
 		$this->smarty->assign('bottom',$this->getBottom($this->smarty));
 		$this->smarty->display('main.tpl');
+		
+	}
+	
+	protected function getUser(){
+		if(isset($_SESSION["login"]) && isset($_SESSION["password"])){
+			$login = $_SESSION["login"];
+			$password = $_SESSION["password"];
+			if($this->user_service->checkUser($login,$password)) return $this->user_service->selectUserByLogin($login);
+			else return false;
+		}
+		else return false;
+		
+	}
+	
+	protected function getPagination($articles){
+		$result = array();
+		for($i = 1; $i <= ceil(count($articles)/2); $i++){
+			$result[]=$i;
+		}
+		return $result;
 	}
 	
 	protected function getArticlesOnPage($articles,$page){
@@ -42,8 +69,13 @@ abstract class PageContent{
 		return $menu;
 	}
 	
+	
 	protected function getFormAuth($smarty){
-		return $smarty->fetch('form_auth.tpl');
+		if($this->user){
+			$smarty->assign("user",$this->user);
+			return $smarty->fetch('user_panel.tpl');
+		}else
+			return $smarty->fetch('form_auth.tpl');
 	}
 	
 	protected function getWeather($smarty){

@@ -1,11 +1,12 @@
 <?php
 require_once "page_content.php";
 
-class FrontPage extends PageContent{
+class SectionPage extends PageContent{
 	private $article_service;
 	private $section_service;
 	private $page;
 	private $articles;
+	private $section;
 	
 	public function __construct($dbController){
 		parent::__construct($dbController);
@@ -15,14 +16,17 @@ class FrontPage extends PageContent{
 	}
 	
 	public function getPreview($smarty){
-		$section = $this->section_service->selectSectionByTitle("Главная страница");
-		$smarty->assign('section',$section);
+		$this->section = $this->section_service->selectSectionById($_GET["id"]);
+		$smarty->assign('section',$this->section);
 		return $smarty->fetch('preview.tpl');
 	}
 	
 	
 	public function getMiddle($smarty){
-		$this->articles = $this->article_service->selectAllArticles();
+		if($_GET["id"] == 5){
+			$this->articles = $this->article_service->selectAllArticles();
+		}else
+		$this->articles = $this->article_service->selectArticlesBySection($_GET["id"]);
 		$new_articles = $this->getArticlesOnPage($this->articles,$this->page);
 		$smarty->assign('articles',$new_articles);
 		return $smarty->fetch('article_promo.tpl');
